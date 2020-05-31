@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+Name=Excel Online
+# This file including comments below is a copy of chromium.desktop
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Excel Online
+GenericName[ru]=Excel Online
+Comment=Excel Online
+Comment[ru]=Excel Online
+Exec=/usr/bin/chromium https://www.office.com/launch/excel %U
+StartupNotify=true
+Terminal=false
+Icon=libreoffice-calc
+Type=Application
+Categories=Office;Spreadsheet;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+Actions=new-window;
+
+[Desktop Action new-window]
+Name=New Window
+Name[ru]=Новое окно
+Exec=/usr/bin/chromium https://www.office.com/launch/excel

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+btrfs send -p /mnt/wd_green/home_backups/backup_reference /mnt/wd_green/home_backups/backup_new | btrfs receive /mnt/wd_green/home_backups/incremental

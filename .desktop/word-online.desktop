@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+Name=Word Online
+# This file including comments below is a copy of chromium.desktop
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Word Online
+GenericName[ru]=Word Online
+Comment=Word Online
+Comment[ru]=Word Online
+Exec=/usr/bin/chromium https://www.office.com/launch/word %U
+StartupNotify=true
+Terminal=false
+Icon=libreoffice-writer
+Type=Application
+Categories=Office;WordProcessor;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+Actions=new-window;
+
+[Desktop Action new-window]
+Name=New Window
+Name[ru]=Новое окно
+Exec=/usr/bin/chromium https://www.office.com/launch/word

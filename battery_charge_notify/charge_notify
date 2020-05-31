@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# This script checks battery charge percentage and notifies user id 1000 if it is over 55% (set in $target).
+
+# variables
+charge=$(calc -m 0 -d $(cat /sys/class/power_supply/BAT0/energy_now)/$(cat /sys/class/power_supply/BAT0/energy_full)*100 | grep -o '[0-9]*\.' | grep -o '[0-9]*')
+lockfile=${HOME}"/.charge_notify.lockfile"
+target="55"
+logfile="/opt/charge_notify.log"
+
+if [[ $charge -ge $target ]] && [[ "Discharging" != $(cat /sys/class/power_supply/BAT0/status) ]] && [[ ! -f $lockfile ]]
+then
+  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send 'Battery status' 'Battery charged to '$target'% or more' --icon=dialog-information
+  mpv --msg-level all=no /usr/share/sounds/freedesktop/stereo/complete.oga
+  touch $lockfile
+  # we do not want to spam notifications every minute, pause for 30 mins here, then remove lockfile
+  sleep 1800
+  if [[ -e $lockfile ]]
+  then
+    rm $lockfile
+  fi
+elif [[ $charge -ge $target ]] && [[ "Discharging" != $(cat /sys/class/power_supply/BAT0/status) ]] && [[ -e $lockfile ]]
+then
+  # Full or Charging, lockfile exists, not doing anything
+  sleep 1
+elif [[ $charge -lt $target ]] || [[ "Discharging" == $(cat /sys/class/power_supply/BAT0/status) ]]
+# if user unplugs laptop or charge drops below target, remove lockfile
+then
+  if [[ -e $lockfile ]]
+  then
+    rm $lockfile
+  fi
+else
+  #log unexprected behaviour
+  echo "Unexpected behaviour logged at '$(date +%Y-%m-%d)'. Variables: target="$target" charge="$charge" status='$(cat /sys/class/power_supply/BAT0/status)'" >> $logfile
+fi
+
+# crontab example for user below
+# do not forget to create the file and change log owner to user
+# actual log is not implemented, so far calc, notify-send and mplayer all operate quietly
+# if they stay quiet, only errors will be writen to log file
+#* * * * * /usr/local/bin/charge_notify 1>> /opt/charge_notify.log 2>> /opt/charge_notify.log

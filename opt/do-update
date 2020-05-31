@@ -1,0 +1,3 @@
+#!/bin/bash
+ssh -t username@server1 "sudo apt update && apt list --upgradable"
+ssh -t username@server2 "sudo apt update && apt list --upgradable"

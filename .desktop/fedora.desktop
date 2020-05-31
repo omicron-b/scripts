@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Qemu Fedora
+GenericName=Qemu Fedora
+GenericName[ru]=Qemu Fedora
+Comment=Qemu Fedora
+Comment[ru]=Qemu Fedora
+Exec=qemu-system-x86_64 -cpu host -smp 2 -machine type=pc,accel=kvm -boot order=d -drive file=dev/fedora-server-cloud-29.qcow2,format=qcow2 -m 500M
+StartupNotify=true
+Terminal=false
+Icon=fedora.png
+Type=Application
+Categories=Emulator;

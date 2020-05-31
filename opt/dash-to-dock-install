@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+cd ~/dev
+git clone https://github.com/micheleg/dash-to-dock.git || true
+cd ~/dev/dash-to-dock/
+git checkout c58004802b2eedfde96966a4ec0151fea2a1bd98
+make
+make zip-file 
+mkdir ~/.local/share/gnome-shell/extensions/ || true
+rm -rf ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+unzip dash-to-dock@micxgx.gmail.com.zip -d ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/
+

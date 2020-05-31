@@ -1,0 +1,4 @@
+#!/bin/bash
+lxc exec pihole -- /usr/bin/apt update
+lxc exec pihole -- /usr/bin/apt upgrade -y
+lxc exec pihole -- /usr/bin/apt autoremove -y

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Pi-hole Admin
+Exec=/usr/lib/firefox-esr/firefox-esr -no-remote -P pihole-admin
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=pi-hole.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-esr
+StartupNotify=true
