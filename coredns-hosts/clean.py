@@ -27,6 +27,9 @@ def normalize(string):
     x = re.sub(" +", " ", x)
     # Remove trailing spaces
     x = x.replace(" \n", "\n")
+    # Insert missing spaces
+    if not x.endswith("\n"):
+        x += "\n"
     # Final clean up: ignore non-valid lines and whitelisted domains
     if (x != "0.0.0.0\n") and (x != "\n") and (x not in whitelist):
         return x
@@ -43,6 +46,13 @@ with open("raw-simple.txt", "r") as f:
 
 hosts = set(hosts)
 hosts = sorted(list(hosts), key=None, reverse=True)
+bandaids = [
+    "213.239.192.206 easylist-downloads.adblockplus.org\n",
+    "173.194.73.91 www.youtube.com\n",
+    "173.194.73.91 youtube-ui.l.google.com\n",
+    "54.159.197.5 www.ign.com\n",
+    ]
+hosts += bandaids
 
 prev_count = 0
 with open("hosts", "r") as f:
