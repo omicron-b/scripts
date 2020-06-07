@@ -67,6 +67,7 @@ flatpak install --user flathub com.anydesk.Anydesk com.bitwarden.desktop org.tel
 
 ### Nice snaps:
 
+- lxd
 - pdfmixtool
 - serve #starts a simple temp static file server
 - shotcut
@@ -133,6 +134,7 @@ sudo update-command-not-found
 `echo "nameserver 208.67.222.222" > $PREFIX/etc/resolv.conf` # change DNS server for Termux (Android app)  
 `sudo ufw allow in to <internal-ip> port 80 from <external-ip> comment "HTTP"` # UFW syntax for incoming connections  
 `sudo ufw allow in on eth0 from <external-ip>/24 comment "this network is ours"` # UFW syntax to allow all connections on interface `eth0`  
+`sudo snap set system snapshots.automatic.retention=no` # disable snap making snapshots on snap removal  
 
 ## Fix permissions in any folder with just data
 
