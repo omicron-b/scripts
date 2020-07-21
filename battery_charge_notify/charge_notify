@@ -37,6 +37,6 @@ fi
 
 # crontab example for user below
 # do not forget to create the file and change log owner to user
-# actual log is not implemented, so far calc, notify-send and mplayer all operate quietly
+# actual log is not implemented, so far calc, notify-send and mpv all operate quietly
 # if they stay quiet, only errors will be writen to log file
 #* * * * * /usr/local/bin/charge_notify 1>> /opt/charge_notify.log 2>> /opt/charge_notify.log
