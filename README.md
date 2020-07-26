@@ -476,19 +476,19 @@ sudo chmod -x /etc/update-motd.d/80-livepatch
 
 - Option 2: the game looks for `Shock2.exe` in `~/.systemshock2/systemshock2/drive_c`. Copy the existing exe from `~/.systemshock2/systemshock2/drive_c/Program Files/SystemShock2/SS2.exe` or `~/.systemshock2/systemshock2/drive_c/Program Files/SystemShock2/Shock2.exe` or `<steam-library>/steamapps/common/SS2/support/systemshock2/drive_c/Program Files/SystemShock2/Shock2.exe` and to where it looks for.
 
-3) Elder Scrolls III: Morrowind and Elders Scrolls IV: Oblivion needs mp3 support (as of 2019, Steam provides that)
+3) Elder Scrolls III: Morrowind and Elders Scrolls IV: Oblivion needs mp3 support (as of 2019, Steam provides that).
 - `sudo pacman -S lib32-mpg123` or `sudo apt install libmpg123-0:i386`
 
-4) Elder Scrolls V: Skyrim Special Edition - no sound in dialogs, some scripts are broken
-- `sudo pacman -S faudio`
-- Edit launch options: `LD_PRELOAD=/usr/lib/libFAudio.so %command%`
+4) Elder Scrolls V: Skyrim Special Edition - no sound in dialogs, some scripts are broken.
+- `sudo pacman -S faudio` or `sudo apt install libfaudio0`
+- Edit launch options: `LD_PRELOAD=/usr/lib/libFAudio.so %command%` or `LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libFAudio.so.0 %command%`
 
-5) Hexen II needs a [custom engine](https://sourceforge.net/projects/uhexen2/files/Hammer%20of%20Thyrion/)
+5) Hexen II needs a [custom engine](https://sourceforge.net/projects/uhexen2/files/Hammer%20of%20Thyrion/).
 
-6) F.E.A.R. Platinum (GOG.com) - no sound
+6) F.E.A.R. Platinum (GOG.com) - no sound.
 - `sudo pacman -S lib32-mpg123 lib32-libpulse` or `sudo apt install libmpg123-0:i386 libpulse0:i386`
 
-7) Wine throws error about OpenAL
+7) Wine throws error about OpenAL.
 - `sudo pacman -S lib32-openal` or `sudo apt install libopenal1:i386`
 
 8) Some older games, like STAR WARS™ Jedi Knight ones from 2003, require `__GL_ExtensionStringVersion=17700` or Proton's alternative `PROTON_OLD_GL_STRING=1` variable to run.
@@ -496,6 +496,11 @@ sudo chmod -x /etc/update-motd.d/80-livepatch
 9) Ziggurat won't start on Arch, Debian Testing.
 
 - Use Steam Linux Runtime (select it in game properties).
+
+10) Bioshock Infinite bad textures aka "texture popping".
+
+- Either find XEngine.ini and increase pool size to 2000 or more depending on total VRAM
+- or set `-DisableTexturePool` in launch options.
 
 ### Fixes for nginx and Wordpress
 
