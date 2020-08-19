@@ -203,10 +203,10 @@ set selectedcolor brightwhite,magenta
 #set keycolor cyan
 #set functioncolor green
 ## In root's .nanorc you might want to use:
-set titlecolor brightwhite,magenta
-set statuscolor brightwhite,magenta
-set errorcolor brightwhite,red
-set selectedcolor brightwhite,cyan
+#set titlecolor brightwhite,magenta
+#set statuscolor brightwhite,magenta
+#set errorcolor brightwhite,red
+#set selectedcolor brightwhite,cyan
 #set stripecolor ,yellow
 #set numbercolor magenta
 #set keycolor brightmagenta
