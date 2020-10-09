@@ -7,7 +7,7 @@
 - purge unattended-upgrades
 - purge snapd
 - limit journald log size
-- open ports 22,80,443,custom(socks5)
+- open ports 22,80,443
 - ~~enable swap with minimal swappiness (1)~~
 - use OpenDNS in etc/systemd/resolved.conf
 - [secure the access: add at least one more key, back it up, and disable web ssh](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-securing-linux-unix-amazon-ec2-instances)
@@ -20,8 +20,6 @@
 - `api-check.py` (crontab)
 - `rss-mailer.py` (crontab)
 - `usr/bin/ffmpeg` (crontab) to get some info from camera
-- HTTP proxy server (squid.service) currently disabled
-- Socks5 proxy server (danted.service)
 - fail2ban
 
 ### Backups
@@ -39,13 +37,14 @@
 - renamed user id 1000, added to group sudo, set password
 - purge unattended-upgrades
 - purge snapd
-- open ports 80,443,53 for limited IPs
-- open port for Project Z
+- open ports 80,443,53,853 for limited IPs
+- open port for Project Z, Project S
 - [secure the access: add at least one more key, back it up, and disable web ssh](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-securing-linux-unix-amazon-ec2-instances)
 
 ### Tasks
 
 - Project Z
+- Project S
 - fail2ban
 - Core DNS
 
