@@ -6,6 +6,10 @@ hosts = list()
 whitelist = (
     "0.0.0.0 s.youtube.com\n",
     "0.0.0.0 s.click.aliexpress.com\n",
+    "0.0.0.0 click.linksynergy.com\n",
+    "0.0.0.0 www.googleadservices.com\n",
+    "0.0.0.0 googleadservices.com\n",
+    "0.0.0.0 geolocation.onetrust.com\n", # for cbs news video player
     )
 
 def normalize(string):
