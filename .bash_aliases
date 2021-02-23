@@ -15,7 +15,6 @@ alias next-list-snapshots='aws lightsail get-instance-snapshots | \
 ### ~~~ ###
 alias cld='ssh mycloud.example.com'
 alias decrypt='gpg -d --no-symkey-cache encrypted.txt.asc | less'
-alias ls="ls --color=auto"
 alias sys='~/dev/sys_info/s_info'
 alias status="cat ~/python-web-tools/error.log && \
 	ls -Gn ~/python-web-tools/* | grep 'lockfile'"
@@ -41,3 +40,10 @@ alias vs-update='rm -rf /opt/vscodium/* && \
 	rm ~/Downloads/VSCodium-linux-x64-*.tar.gz'
 alias t='/opt/timer'
 alias dd='/opt/dd'
+# for LXD containers
+alias lxc-ff='lxc exec apps -- sudo --user ubuntu --login /usr/bin/firefox'
+alias lxc-apps='lxc exec yotter -- sudo --user ubuntu --login'
+# run Android emulator in firejail with no sound and mic
+alias and='rm ~/.android/avd/Pixel_2.avd/cache.img ~/.android/avd/Pixel_2.avd/hardware-qemu.ini.lock \
+	~/.android/avd/Pixel_2.avd/multiinstance.lock ~/.android/avd/Pixel_2.avd/snapshot.lock.lock || true \
+	&& firejail --nosound ~/Android/Sdk/emulator/emulator @Pixel_2'
