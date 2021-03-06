@@ -48,6 +48,14 @@ with open("raw-simple.txt", "r") as f:
         if normalize(row):
             hosts.append("0.0.0.0 " + normalize(row))
 
+try:
+    with open("custom-hosts.txt", "r") as f:
+        for row in f:
+            if normalize(row):
+                hosts.append(normalize(row))
+except FileNotFoundError:
+    pass
+
 hosts = set(hosts)
 hosts = sorted(list(hosts), key=None, reverse=True)
 
