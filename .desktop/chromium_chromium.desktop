@@ -171,9 +171,8 @@ Comment[zh_TW]=連線到網際網路
 Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/chromium_chromium.desktop /snap/bin/chromium %U --no-proxy-server
 Terminal=false
 Type=Application
-Icon=/snap/chromium/1328/chromium.png
+Icon=/snap/chromium/current/chromium.png
 Categories=Network;WebBrowser;
-MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 StartupWMClass=chromium
 Actions=NewWindow;Incognito;TempProfile;
@@ -294,3 +293,4 @@ Name[zh_CN]=以临时配置文件打开新窗口
 Name[zh_TW]=以暫時性個人身分開啟新視窗
 Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/chromium_chromium.desktop /snap/bin/chromium --temp-profile --no-proxy-server
 
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
