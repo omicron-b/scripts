@@ -1,63 +1,5 @@
 ## Just some useful info here
 
-## Arch packages
-### From official repos:
-
-```
-pacman -S --needed base-devel
-pacman -S grub-btrfs efibootmgr diffutils e2fsprogs inetutils bind-tools less linux-firmware man-db man-pages nano netctl perl usbutils networkmanager
-#pacman -S os-prober # in case grub should be generated and Arch is not the only system
-#pacman -S kbd # in case custom font needs to be set up in console
-#for KDE
-sudo pacman -S plasma sddm
-sudo pacman -S --needed kde-applications #(4 5 13 14 15 16 20 23 24 27 35 44 45 46 52 53 58 61 69 78 95 99 104 115 122 141)
-sudo pacman -S partitionmanager kdeconnect
-#
-#for GNOME
-sudo pacman -S gdm
-sudo pacman -S --needed gnome
-sudo pacman -S gnome-tweaks celluloid
-#
-#for Cinnamon
-sudo pacman -S cinnamon xed gvfs-mtp gvfs-gphoto2 blueberry deepin-terminal gnome-screenshot eog
-#
-#in case gdm or sddm are broken:
-sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-#or
-sudo pacman -S lxdm
-#
-#for Wi-Fi management
-sudo pacman -S iw wpa_supplicant networkmanager
-#
-#to compile drivers
-sudo pacman -S dkms linux-headers
-#
-#all other software
-sudo pacman -S openssh wget rsync git neofetch xorg-xauth screen htop calc pacman-contrib cronie qemu catimg mlocate noto-fonts-emoji flatpak libreoffice-still lutris steam mesa lib32-nvidia-utils faudio lsb-release code firefox chromium foliate kphotoalbum shotwell telegram-desktop nvidia nvidia-settings gst-plugins-good wine-staging lib32-fontconfig
-#sudo pacman -S libinput #for touchpad
-#sudo pacman -S sshfs libcanberra gsound caribou python-nautilus #for GSConnect (GNOME-shell plugin) extended functionality
-```
-
-### Installing wine 3.0 and keeping it from updating
-
-```
-wget https://archive.archlinux.org/packages/w/wine/wine-3.0-1-x86_64.pkg.tar.xz
-sudo pacman -U wine-3.0-1-x86_64.pkg.tar.xz
-sudo nano /etc/pacman.conf #add "IgnorePkg = wine"
-```
-
-### From AUR:  
-
-- yay  
-- #rtl8821au-dkms-git  
-- google-chrome  
-- tor-browser  
-- alac-git #m4a, Apple Lossless  
-- #flat-remix-git  
-- #stapler  
-- pdftk  
-- gamemode  
-
 ### Nice flatpaks:
 
 ```
@@ -114,24 +56,16 @@ sudo apt-file update
 sudo update-command-not-found
 ```
 
-## Entware packages
-`opkg install sudo shadow-useradd rsync bash nano htop git git-http`
-
 ## How-To
 
 `tr -d "\n\r" < input.txt > output.txt` # remove all newlines from file, be it Unix, Windows or Mac; `tr` can also be used to replace text and to remove repeating characters, newlines included.  
 `tr -d "\r" < input.txt > output.txt` or `tr -d "\015" < input.txt > output.txt` # convert text file from DOS format (carriage return + line feed) to Unix (line feed).  
-`paccache -rk0` # clean all pacman cache  
-`paccache -r` # clean pacman cache except last 3 versions of all software  
-`paccache -ruk0` # clean only uninstalled packages from cache, all versions  
-`pacman -Qqen > package.list` # save list of installed native packages  
-`pacman -S --needed - < package.list` # install from previously saved list (skip installed and updated packages)  
 `sudo apt install pkg=version` # downgrading a package  
 `ffmpeg -i long_video.mkv -ss 00:00:10.0 -c copy -to 01:30:30.0 output.mkv` # ffmpeg - copy part of video starting from 10 sec to 1 h 30 min 30 sec  
 `find ./ -name "*\.png" -type f -print` # find and list files by part of filename  
 `find ./ -name "*\.png" -type f -delete` # find and delete the same files  
 `CAMEL_DEBUG=imapx:io evolution` # run Evolution with IMAP debugging output. [More info here.](https://wiki.gnome.org/Apps/Evolution/Debugging)  
-`echo "nameserver 208.67.222.222" > $PREFIX/etc/resolv.conf` # change DNS server for Termux (Android app)  
+`echo "nameserver 9.9.9.9" > $PREFIX/etc/resolv.conf` # change DNS server for Termux (Android app)  
 `sudo ufw allow in to <internal-ip> port 80 from <external-ip> comment "HTTP"` # UFW syntax for incoming connections  
 `sudo ufw allow in on eth0 from <external-ip>/24 comment "this network is ours"` # UFW syntax to allow all connections on interface `eth0`  
 `sudo snap set system snapshots.automatic.retention=no` # disable snap making snapshots on snap removal  
@@ -192,18 +126,6 @@ Example for connecting to SQL in a qemu VM
 
 `find somedir -type f -exec md5sum {} \; | sort -k 2 | md5sum`  
 author: [Warren Young](https://unix.stackexchange.com/users/138/warren-young), [source](https://unix.stackexchange.com/questions/35832/how-do-i-get-the-md5-sum-of-a-directorys-contents-as-one-sum/35834#35834)  
-
-## Adding new user on Entware router
-
-```
-useradd username
-mkdir /opt/home/username/
-chown username:username /opt/home/username
-"username:!:1000:1000::/opt/home/username:/opt/bin/sh" >> /opt/etc/passwd #correct entry before setting up password on Entware router
-passwd username
-# now edit /opt/etc/sudoers to allow sudo to any user who knows root password
-# optional: ssh-copy-id username@192.168.1.1 and disallow root auth and password auth by adding -w -s flags to /opt/etc/init.d/S51dropbear
-```
 
 ## How to shrink a qemu virtual drive (qcow2, but should also work for other types)
 
@@ -302,7 +224,7 @@ sudo ninja install
 
 ## Various fixes
 
-### GNOME Web can play gifs
+### GNOME Web can't play gifs
 
 `sudo apt install gstreamer1.0-libav`
 
