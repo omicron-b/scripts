@@ -302,6 +302,10 @@ sudo ninja install
 
 ## Various fixes
 
+### GNOME Web can play gifs
+
+`sudo apt install gstreamer1.0-libav`
+
 ### Screen flickering after wakeup on Intel integrated video
 
 Add `i915.enable_psr=0` to `/etc/default/grub` on line `GRUB_CMDLINE_LINUX_DEFAULT`  
