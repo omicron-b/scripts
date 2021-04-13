@@ -326,7 +326,8 @@ Option 3: Ubuntu 19.04 experimental feature: `gsettings set org.gnome.mutter exp
 
 ### When using GNOME and GnuPG, pinentry may use wrong frontend
 
-Copy `/usr/bin/pinentry` to `/usr/local/bin/pinentry` (the later should be first in $PATH) and edit to specify correct backend:
+This could be fixed with a [config file](https://wiki.archlinux.org/index.php/GnuPG#pinentry)  
+Another option is to copy `/usr/bin/pinentry` to `/usr/local/bin/pinentry` (the later should be first in $PATH) and edit to specify correct backend:
 ```
 #!/bin/sh
 exec /usr/bin/pinentry-gnome3  "$@"
