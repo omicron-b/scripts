@@ -86,6 +86,9 @@ GNOME Tweaks -> Fonts
 Hinting: Slight  
 Antialiasing: Subpixel (for LCD screens)  
 
+## Enable Better blocker in GNOME Web
+[see this link](https://ar.al/2018/07/17/enabling-better-blocker-in-gnome-web/)
+
 ## Find and tweak any GNOME settings
 
 In this example, setting recently opened files list in gedit to 10.
