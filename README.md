@@ -66,6 +66,7 @@ sudo update-command-not-found
 `find ./ -name "*\.png" -type f -delete` # find and delete the same files  
 `CAMEL_DEBUG=imapx:io evolution` # run Evolution with IMAP debugging output. [More info here.](https://wiki.gnome.org/Apps/Evolution/Debugging)  
 `gsettings set org.gnome.evolution.mail composer-reply-keep-signature true` # fix Evolution cutting off quoted email after first signature  
+`gsettings set org.gnome.mutter check-alive-timeout 0` # disable Mutter check-alive timeout  
 `echo "nameserver 9.9.9.9" > $PREFIX/etc/resolv.conf` # change DNS server for Termux (Android app)  
 `sudo ufw allow in to <internal-ip> port 80 from <external-ip> comment "HTTP"` # UFW syntax for incoming connections  
 `sudo ufw allow in on eth0 from <external-ip>/24 comment "this network is ours"` # UFW syntax to allow all connections on interface `eth0`  
