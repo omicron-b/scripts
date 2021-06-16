@@ -29,17 +29,14 @@
 - Linuxgaming except user data, cache and config (manually to somewhere private)
 - `$HOME` (manually (rsync) to btrfs partition)
 
-# Lightsail server 2
+# Debian server
 
 ### Changes to default config
 
-- dpkg-reconfigure tzdata
-- renamed user id 1000, added to group sudo, set password
-- purge unattended-upgrades
-- purge snapd
-- open ports 80,443,53,853 for limited IPs
+- add user, append group sudo, set password, allow sudo without a password
+- authorize at least 2 keys for a new user, disable ssh login as root
+- open ports 53,443,853 for limited IPs
 - open port for Project Z, Project S
-- [secure the access: add at least one more key, back it up, and disable web ssh](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-securing-linux-unix-amazon-ec2-instances)
 
 ### Tasks
 
