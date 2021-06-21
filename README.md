@@ -72,6 +72,7 @@ sudo update-command-not-found
 `sudo ufw allow in on eth0 from <external-ip>/24 comment "this network is ours"` # UFW syntax to allow all connections on interface `eth0`  
 `sudo snap set system snapshots.automatic.retention=no` # disable snap making snapshots on snap removal  
 `echo  -n  "1" | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode` # limit battery charge level by 60% on Lenovo laptops, recommended when always plugged in  
+`sudo checkrestart` # check if a Debian server needs a restart (not counting kernel upgrade, always restart after that)  
 
 ## Fix permissions in any folder with just data
 
