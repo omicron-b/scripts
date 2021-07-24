@@ -74,6 +74,32 @@ sudo update-command-not-found
 `echo  -n  "1" | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode` # limit battery charge level by 60% on Lenovo laptops, recommended when always plugged in  
 `sudo checkrestart` # check if a Debian server needs a restart (not counting kernel upgrade, always restart after that)  
 
+## Data recovery in case of a failing storage device
+
+1) If possible, try to keep the device cool or cold  
+2) If the device can still be mounted, mount it and copy the most important data  
+3) Unmount the device and use ddrescue to copy device or partition byte by byte to a good device or partition,
+while keeping a mapfile outside both devices  
+`ddrescue /dev/sdx /dev/sdy mapfile`
+4) Retry bad sectors as much as needed  
+`ddrescue -d -r3 /dev/sdx /dev/sdy mapfile`
+5) Disconnect the bad storage device  
+6) Use at least 2 different recovery tools on the good device to try and recover as much data as possible  
+- photorec (remember to manually select needed types of files)  
+- foremost  
+`sudo foremost -t jpg,png,avi,mp4 -i /dev/sdx -o ~/recovered`
+7) Use find to delete irrelevant files depending on size and then sort them, some examples:  
+```
+# move jpg files with size above 1MB to a separate folder
+find . -name '*.jpg' -type f -size +1000000c -exec mv {} /media/user/rec/pics_1MB_plus/ \;
+# delete png files with size less then 37KB
+find . -name '*.png' -type f -size -37000c -exec rm -f {} \;
+# count mp4 files with size above 100KB
+find . -name '*.mp4' -type f -size +100000c | wc -l
+```
+8) chown the data from root to user and use fslint (needs Debian 10, but also available as a snap) to remove duplicates
+first only among files recovered by photorec and foremost, next among files copied manually and unique recovered files  
+
 ## Fix permissions in any folder with just data
 
 ```
