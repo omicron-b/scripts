@@ -47,3 +47,8 @@ alias lxc-apps='lxc exec yotter -- sudo --user ubuntu --login'
 alias and='rm ~/.android/avd/Pixel_2.avd/cache.img ~/.android/avd/Pixel_2.avd/hardware-qemu.ini.lock \
 	~/.android/avd/Pixel_2.avd/multiinstance.lock ~/.android/avd/Pixel_2.avd/snapshot.lock.lock || true \
 	&& firejail --nosound ~/Android/Sdk/emulator/emulator @Pixel_2'
+alias up='sudo apt update && sudo apt list --upgradable && sudo apt upgrade && sudo apt autoremove --purge && flatpak update'
+alias sw='__GL_ExtensionStringVersion=17700 steam'
+alias ytb-auto-sub='youtube-dl --write-auto-sub --sub-lang en --skip-download'
+alias make_data_incremental_backup='sudo btrfs subvolume snapshot -r /mnt/Data /mnt/data_backups/$(date +%Y-%m-%d)'
+alias make_home_incremental_backup='sudo btrfs subvolume snapshot -r /mnt/home /mnt/home_backups/$(date +%Y-%m-%d)'
