@@ -1,2 +1,0 @@
-#!/bin/bash
-systemctl status fail2ban nginx php7.2-fpm mariadb | grep -B 3 'Active.*'
