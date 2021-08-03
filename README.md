@@ -1,5 +1,7 @@
 ## Just some useful info here
 
+For scripts and config files specific to a distribution check branches  
+
 ### Nice flatpaks:
 
 ```

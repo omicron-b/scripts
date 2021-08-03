@@ -1,3 +1,0 @@
-#!/bin/bash
-ssh username@server1 "sudo reboot"
-ssh username@server2 "sudo reboot"
