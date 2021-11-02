@@ -10,6 +10,9 @@ whitelist = (
     "0.0.0.0 www.googleadservices.com\n",
     "0.0.0.0 googleadservices.com\n",
     "0.0.0.0 geolocation.onetrust.com\n", # for cbs news video player
+    "0.0.0.0 bnc.lt\n", # airbnb links
+    "0.0.0.0 akamai.net\n", # cdn
+    "0.0.0.0 intel.com\n",
     )
 
 def normalize(string):
