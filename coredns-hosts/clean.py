@@ -4,15 +4,15 @@ import re
 
 hosts = list()
 whitelist = (
-    "0.0.0.0 s.youtube.com\n",
-    "0.0.0.0 s.click.aliexpress.com\n",
-    "0.0.0.0 click.linksynergy.com\n",
-    "0.0.0.0 www.googleadservices.com\n",
-    "0.0.0.0 googleadservices.com\n",
-    "0.0.0.0 geolocation.onetrust.com\n", # for cbs news video player
-    "0.0.0.0 bnc.lt\n", # airbnb links
-    "0.0.0.0 akamai.net\n", # cdn
-    "0.0.0.0 intel.com\n",
+    "s.youtube.com\n",
+    "s.click.aliexpress.com\n",
+    "click.linksynergy.com\n",
+    "www.googleadservices.com\n",
+    "googleadservices.com\n",
+    "geolocation.onetrust.com\n", # for cbs news video player
+    "bnc.lt\n", # airbnb links
+    "akamai.net\n", # cdn
+    "intel.com\n",
     )
 
 def normalize(string):
@@ -38,7 +38,8 @@ def normalize(string):
     if not x.endswith("\n"):
         x += "\n"
     # Final clean up: ignore non-valid lines and whitelisted domains
-    if (x != "0.0.0.0\n") and (x != "\n") and (x not in whitelist):
+    if (x != "0.0.0.0\n") and (x != "\n") and (x not in whitelist)\
+    and (x.replace("0.0.0.0 ", "") not in whitelist):
         return x
 
 with open("raw-hosts.txt", "r") as f:
