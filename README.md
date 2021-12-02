@@ -24,6 +24,18 @@ Backslide [release](https://extensions.gnome.org/extension/543/backslide/) or [l
 [Dash-to-dock](https://extensions.gnome.org/extension/307/dash-to-dock/)  
 [Dynamic Top Bar](https://github.com/omicron-b/GnomeShell_DynamicTopBar) or [Dynamic Panel Transparency](https://github.com/rockon999/dynamic-panel-transparency)
 
+### Cleaning up Debian non-free LXDE
+
+```
+sudo apt purge unattended-upgrades accountsservice wicd wicd-daemon xiterm+thai \
+  khme* fcitx* mozc* scim kasumi itweb* ibus uim mlterm xterm x11-apps \
+  task-*-desktop eject installation-report modemmanager mobile-broadband* \
+  dahdi-firmware-nonfree default-jre*  firmware-adi firmware-amd-graphics \
+  firmware-b* firmware-c* firmware-intel* firmware-ipv* firmware-ivtv \
+  firmware-liber* firmware-my* firmware-n* firmware-q* firmware-ralink \
+  firmware-s* firmware-t* firmware-z* freepats gnome-orca ingerman
+```
+
 ## Debian 9 XFCE non-free packages
 
 ```
@@ -49,6 +61,18 @@ sudo apt -t stretch-backports upgrade
 echo "Package: *
 Pin: release a=stretch-backports
 Pin-Priority: 500" | sudo tee -a /etc/apt/preferences.d/stretch-backports
+```
+
+### Cleaning up Debian free GNOME
+
+```
+sudo apt purge eject installation-report modemmanager \
+  mobile-broadband-provider-info gnome-klotski gnome-sudoku gnome-chess \
+  gnome-taquin gnome-games gnome-tetravex gnome-todo gnome-weather \
+  gnome-documents gnome-getting-started-docs gnome-user-docs \
+  gnome-accessibility-themes gnome-maps gnome-online-miners gnome-robots \
+  hitori five-or-more swell-foop four-in-a-row tali quadrapassel gnome-mines \
+  aisleriot gnome-mahjongg libreoffice-draw libreoffice-impress rhythmbox
 ```
 
 ## Debian 10 GNOME packages
@@ -508,15 +532,6 @@ upload_max_filesize = 4M
 
 ```
 sudo rm -rf /var/lib/menu-xdg/*
-```
-
-### Cleaning up Debian non-free LXDE [1] \ Debian free GNOME [2]
-
-```
-#[1]
-sudo apt purge unattended-upgrades accountsservice wicd wicd-daemon xiterm+thai khme* fcitx* mozc* scim kasumi itweb* ibus uim mlterm xterm x11-apps task-*-desktop eject installation-report modemmanager mobile-broadband* dahdi-firmware-nonfree default-jre*  firmware-adi firmware-amd-graphics firmware-b* firmware-c* firmware-intel* firmware-ipv* firmware-ivtv firmware-liber* firmware-my* firmware-n* firmware-q* firmware-ralink firmware-s* firmware-t* firmware-z* freepats gnome-orca ingerman
-#[2]
-sudo apt purge gnome-software unattended-upgrades eject installation-report modemmanager mobile-broadband-provider-info gnome-klotski gnome-sudoku gnome-chess gnome-taquin gnome-games gnome-tetravex gnome-todo gnome-weather gnome-sound-recorder gnome-documents gnome-getting-started-docs gnome-user-docs gnome-accessibility-themes gnome-maps gnome-online-miners gnome-robots hitori five-or-more swell-foop four-in-a-row tali quadrapassel transmission-common gnome-mines aisleriot gnome-mahjongg libreoffice-draw libreoffice-impress rhythmbox
 ```
 
 ### Installing KX-MB1500 printer and scanner driver
