@@ -29,7 +29,10 @@ Backslide [release](https://extensions.gnome.org/extension/543/backslide/) or [l
 ```
 sudo dpkg --add-architecture i386
 sudo apt update
-sudo apt install neofetch networkmanager steam plank chromium git htop rsync xserver-xorg xinit xsane system-config-printer mythes-en-us hyphen-en-us sysfsutils libusbhid-common plymouth plymouth-themes bdf2psf debian-reference-common fbterm gimp-help-common psf-unifont ttf-unifont unifont xfonts-unifont
+sudo apt install neofetch networkmanager steam git htop rsync xserver-xorg \
+  xinit xsane system-config-printer mythes-en-us hyphen-en-us sysfsutils \
+  libusbhid-common plymouth plymouth-themes bdf2psf debian-reference-common \
+  fbterm gimp-help-common psf-unifont ttf-unifont unifont xfonts-unifont
 sudo systemctl enable NetworkManager
 sudo systemctl disable wicd
 sudo apt purge wicd*
@@ -51,11 +54,20 @@ Pin-Priority: 500" | sudo tee -a /etc/apt/preferences.d/stretch-backports
 ## Debian 10 GNOME packages
 
 ```
-sudo apt install stubby tlp neofetch chromium git htop rsync plymouth plymouth-themes firmware-iwlwifi firmware-misc-nonfree flatpak gnome-software-plugin-flatpak network-manager-l2tp-gnome remmina apcalc dnsutils tree gnome-mpv command-not-found cargo
-sudo apt install libreoffice-help-ru hunspell-ru mythes-ru hyphen-ru libreoffice-grammarcheck-ru hunspell-en-us mythes-en-us hyphen-en-us libreoffice-grammarcheck-en-us # after removal of gnome-software, some of these may be autoremoved, setting them to manually installed
-cargo install fselect
+sudo apt install calc catimg cups firejail flameshot fonts-ubuntu fzf gamemode \
+  gimp gnome-authenticator gnome-shell-extension-remove-dropdown-arrows \
+  gnome-shell-extensions gnome-sound-recorder gnome-tweaks htop hyphen-en-us \
+  hyphen-ru libreoffice-help-ru libreoffice-lightproof-en \
+  libreoffice-lightproof-ru-ru mythes-en-us mythes-ru neofetch neomutt \
+  obs-studio openvpn pdftk peek qemu-system-x86 remmina rsync screen \
+  shadowsocks-libev shotcut shotwell simple-scan smartmontools stress telnet \
+  tesseract-ocr tesseract-ocr-rus traceroute transmission-gtk xdotool \
+  youtube-dl command-not-found
 sudo apt-file update
 sudo update-command-not-found
+# optional
+sudo apt install tlp firmware-iwlwifi firmware-misc-nonfree \
+  network-manager-l2tp-gnome dnsutils tree
 ```
 
 ## How-To
@@ -63,6 +75,7 @@ sudo update-command-not-found
 `tr -d "\n\r" < input.txt > output.txt` # remove all newlines from file, be it Unix, Windows or Mac; `tr` can also be used to replace text and to remove repeating characters, newlines included.  
 `tr -d "\r" < input.txt > output.txt` or `tr -d "\015" < input.txt > output.txt` # convert text file from DOS format (carriage return + line feed) to Unix (line feed).  
 `sudo apt install pkg=version` # downgrading a package  
+`sudo apt-mark auto pkg` # marking package as auto-installed (allow auto-removal)  
 `ffmpeg -i long_video.mkv -ss 00:00:10.0 -c copy -to 01:30:30.0 output.mkv` # ffmpeg - copy part of video starting from 10 sec to 1 h 30 min 30 sec  
 `find ./ -name "*\.png" -type f -print` # find and list files by part of filename  
 `find ./ -name "*\.png" -type f -delete` # find and delete the same files  
