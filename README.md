@@ -76,7 +76,7 @@ sudo apt purge eject installation-report modemmanager \
   unattended-upgrades
 ```
 
-## Debian 10 GNOME packages
+## Debian 11 GNOME packages
 
 ```
 sudo apt install calc catimg cups firejail flameshot fonts-ubuntu fzf gamemode \
