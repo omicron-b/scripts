@@ -72,26 +72,27 @@ sudo apt purge eject installation-report modemmanager \
   gnome-documents gnome-getting-started-docs gnome-user-docs \
   gnome-accessibility-themes gnome-maps gnome-online-miners gnome-robots \
   hitori five-or-more swell-foop four-in-a-row tali quadrapassel gnome-mines \
-  aisleriot gnome-mahjongg libreoffice-draw libreoffice-impress rhythmbox
+  aisleriot gnome-mahjongg libreoffice-draw libreoffice-impress rhythmbox \
+  unattended-upgrades
 ```
 
 ## Debian 10 GNOME packages
 
 ```
 sudo apt install calc catimg cups firejail flameshot fonts-ubuntu fzf gamemode \
-  gimp gnome-authenticator gnome-shell-extension-remove-dropdown-arrows \
+  gimp git gnome-authenticator gnome-shell-extension-remove-dropdown-arrows \
   gnome-shell-extensions gnome-sound-recorder gnome-tweaks htop hyphen-en-us \
   hyphen-ru libreoffice-help-ru libreoffice-lightproof-en \
   libreoffice-lightproof-ru-ru mythes-en-us mythes-ru neofetch neomutt \
-  obs-studio openvpn pdftk peek qemu-system-x86 remmina rsync screen \
+  obs-studio pdftk peek qemu-system-x86 remmina resolvconf rsync screen \
   shadowsocks-libev shotcut shotwell simple-scan smartmontools stress telnet \
   tesseract-ocr tesseract-ocr-rus traceroute transmission-gtk xdotool \
-  youtube-dl command-not-found
+  wireguard youtube-dl command-not-found
 sudo apt-file update
 sudo update-command-not-found
 # optional
 sudo apt install tlp firmware-iwlwifi firmware-misc-nonfree \
-  network-manager-l2tp-gnome dnsutils tree
+  firmware-realtek network-manager-l2tp-gnome dnsutils tree
 ```
 
 ## How-To
