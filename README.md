@@ -7,6 +7,8 @@ For scripts and config files specific to a distribution check branches
 ```
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user flathub com.anydesk.Anydesk com.bitwarden.desktop org.telegram.desktop com.github.johnfactotum.Foliate io.dbeaver.DBeaverCommunity com.valvesoftware.Steam
+flatpak install --user flathub org.libreoffice.LibreOffice
+flatpak install --reinstall flathub org.libreoffice.LibreOffice.Locale
 ```
 
 ### Nice snaps:
